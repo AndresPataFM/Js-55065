@@ -13,6 +13,7 @@ function nombre(){
 } 
 */
 
+
 // 🔹 Con return
 /* function nombre(){
     ~sentencia a ejecutar
