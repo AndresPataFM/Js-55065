@@ -9,3 +9,38 @@
 💡 Ten presente que el precio del producto, debe guardarse como un número, y puede contener decimales: (utiliza las funciones acordes para controlar que se guarde correctamente esta información.
 💡 Ten presente también que, el código del producto, de ser numérico, se debe guardar como un número entero. Utiliza la función acorde para que así sea
 */
+
+class Producto{
+    constructor(codigo, desc, stock, precio){
+        this.codigo = codigo
+        this.descripcion = desc
+        this.stock = stock
+        this.precio = precio
+    }
+}
+
+const productos = []
+let loop = true
+
+function agregarProductos(){
+    // que no se repita y sea un nro entero positivo igual o mayor a 0
+    let codigo = parseInt(prompt("codigo"))
+    // que no sea un string vacio
+    let descripcion = prompt("descripcion")
+    // que sea un nro entero mayor o igual a 0
+    let stock = parseInt(prompt("stock"))
+    // que sea un nro entero mayor o igual a 0
+    let precio = parseFloat(prompt("precio")).toFixed(2)
+
+    productos.push(new Producto(codigo, descripcion, stock, precio))
+    console.log(productos)
+}
+
+alert("usted va a agregar productos")
+while(loop){
+    agregarProductos()
+    loop = confirm("¿Desea agregar otro producto?")
+}
+
+
+
