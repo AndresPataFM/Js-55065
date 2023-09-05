@@ -9,11 +9,11 @@ function cargarDOM() {
 }
 */
 function cargarDOM() {
-    const titulo = document.querySelector("titulo")
-    const listado = document.querySelector(".listado")
+    const titulo = document.querySelector("#titulo")
+    const listado = document.querySelector("#listado")
     titulo.innerText = "www.mandafruta.com"
     frutas.forEach(fruta => {
-        listado.innerHTML += '<li>{fruta}</li>`
+        listado.innerHTML += `<li>${fruta}</li>`
     })
 }
 // 🔶 Preguntas guía

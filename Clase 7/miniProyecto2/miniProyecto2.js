@@ -49,7 +49,7 @@ const productosPreexistentes = ()=>{
     if (productos.length===0){
         productosBase.forEach(prod=>{
             let dato = JSON.parse(JSON.stringify(prod))
-            agregarProducto(dato)}
+                agregarProducto(dato)}
             )
     }
 }

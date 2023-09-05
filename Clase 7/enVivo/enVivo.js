@@ -42,3 +42,11 @@ buscarQuery.appendChild(pyth)
 
 
 // 🔶 Eventos 🔶
+
+const divEventos = document.getElementById("eventos")
+divEventos.addEventListener("mouseenter",()=>{
+    console.log("entraste")
+})
+divEventos.addEventListener("mouseleave",()=>{
+    console.log("saliste")
+})
