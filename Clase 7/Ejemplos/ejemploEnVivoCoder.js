@@ -64,6 +64,8 @@ cargarDOM()
 //     })
 // }
 const frutas = ['Ananá', 'Banana', 'Durazno', 'Kiwi', 'Manzana', 'Papaya', 'Pera', "Frutilla"]
+
+
 function cargarDOM() {
     const titulo = document.querySelector("#titulo")
     const listado = document.querySelector("#listado")
