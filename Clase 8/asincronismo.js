@@ -10,7 +10,7 @@
 // Retorna su id numérico
 
 // 🔶 Crear
-// setTimeout(codigo, tiempoMs)
+// setTimeout(funcion, tiempoMs)
 
 // console.log('hola')
 // const trabajar = (string)=>console.log(string)
@@ -18,7 +18,7 @@
 // setTimeout(()=>trabajar('trabajando rapido'), 1000)
 // console.log('chau')
 
-// setInterval(codigo, tiempoMs)
+// setInterval(funcion, tiempoMs)
 // setInterval(()=>{console.log("tenes tiempo?")}, 1000)
 // 🔶 Frenar
 

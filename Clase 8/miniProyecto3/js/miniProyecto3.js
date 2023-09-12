@@ -17,7 +17,7 @@ const pedidos = JSON.parse(localStorage.getItem("pedidos")) || []
 const agregarProducto = ({name, id, type, price, stock, description})=>{
     //Destuctura un objeto para recibir los datos
     if(productos.some(prod=>prod.id===id)){
-        // console.warn("Ya existe un producto con ese id") // esto lo podemos ahcer a futuro con lirberias
+        console.warn("Ya existe un producto con ese id") // esto lo podemos hacer a futuro con lirberias
     } else {
         const productoNuevo = new Producto(name, id, type, price, stock, description)
         productos.push(productoNuevo)
@@ -125,15 +125,14 @@ const productosPreexistentes = async ()=>{
     // Si el array de productos esta vacio, hace un fetch de los productos
     if (productos.length===0){
         try{
-            console.log("promesa")
+            // console.log("PROMESA")
             // es buena pracitca poner aparte el link con el que trabajas, hay mejor manejo.
-            const URLprodAbsoluto = "/miniProyecto3/products.json" // Mejor si hay varios HTML en distintos lados
+            const URLprodAbsoluto = "/Clase 8/miniProyecto3/products.json" // Mejor si hay varios HTML en distintos lados
             const URLprodRelativo = "./products.json" // Marea porque es en relacion al HTML!!!
             const productosBasePuro = await fetch(URLprodAbsoluto)
             const productosBase = await productosBasePuro.json()
             productosBase.forEach(prod=>{
-                let dato = JSON.parse(JSON.stringify(prod))
-                agregarProducto(dato)}
+                    agregarProducto(prod)}
                 )
         } catch(err) {
             console.error("Se produjo un error al realizar el fetch:", err)
