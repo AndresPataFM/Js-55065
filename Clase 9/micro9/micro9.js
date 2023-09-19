@@ -7,59 +7,46 @@
 // Tips
 // 🔹 No utilices input type text, aprovecha input type search y los eventos teclado e input.
 
-// Micro 8
-let listaProd = []
+const productos = [
+    {nombre:"manzana"},
+    {nombre:"pera"},
+    {nombre:"lechuga"},
+    {nombre:"tomate"},
+    {nombre:"papa"},
+    {nombre:"anana"},
+    {nombre:"palta"}
+]
 
-const lista = document.getElementById("lista")
-const formularioBuscador = document.getElementById("formularioBuscador")
-const buscador = document.getElementById("buscador")
+const formBuscador = document.getElementById("buscador")
+const inputBuscador = document.getElementById("busqueda")
+const submitBuscador = document.getElementById("formSubmit")
+const listaFrutas = document.getElementById("listaFrutas")
 
-const mostrarLista=(listaArray)=>{
-    lista.innerHTML= ""
-    listaArray.forEach(element => {
-        const li = document.createElement("li")
-        li.innerHTML=`${element.nombre} ($${element.precio})`
-        lista.appendChild(li)
-    });
-}
-const filtrarBusqueda=(consulta)=>{
-    // utilizo combinacion de filter e includes
-    // includes dice si un string contiene a otro y retorna un booleano
-    let listaFiltrada = listaProd.filter(elemento=>{
-        return elemento.nombre.toLowerCase().includes(consulta.toLowerCase())
+const buscarInput = (criterioBusqueda)=>{
+    const resultado = productos.filter((fruta)=>{
+        return fruta.nombre.includes(criterioBusqueda)
     })
-    return listaFiltrada
+    return resultado
 }
 
-const buscadorFuncional = ()=>{
-    formularioBuscador.addEventListener("submit",event=>{
-        event.preventDefault()
-        let valorBusqueda = buscador.value
-        const resultadoBusqueda = filtrarBusqueda(valorBusqueda)
-        if(resultadoBusqueda.length===0){
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'No se encuentra entre nuestros productos'
-            })
-        } 
-        mostrarLista(resultadoBusqueda)
-    })
-}
+formBuscador.addEventListener("submit", (e)=>{
+    e.preventDefault()
+})
 
-setTimeout(()=>{
-    fetch("./productos.json").then(rta=>{
-        return rta.json()
-    }).then(rta=>{
-        mostrarLista(rta)
-        // listaProd = rta.map(prod =>{
-        //     // convertir a JSON y luevo retornarlo a JS rompe relacion de datos.
-        //     return JSON.parse(JSON.stringify(prod))
-        // })
-        listaProd = rta
-        // 2 maneras de hacer lo mismo, remover el disabled
-        formularioBuscador[0].disabled=false
-        formularioBuscador[1].removeAttribute('disabled')
-        buscadorFuncional()
-    })
-},3000)
+inputBuscador.addEventListener("input", ()=>{
+    const resultadoBusqueda = buscarInput(inputBuscador.value)
+    listaFrutas.innerHTML = ""
+    if(resultadoBusqueda.length === 0){
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No encontramos ninguna fruta que coincida en nuestra base de datos!',
+        })
+    } else {
+        resultadoBusqueda.forEach(fruta=>{
+            const li = document.createElement("li")
+            li.innerText=`${fruta.nombre}`
+            listaFrutas.appendChild(li)
+        })
+    }
+})

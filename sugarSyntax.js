@@ -26,13 +26,13 @@ const hola2 = ()=>{console.log("hola")}
 
 // ternario
 // otra manera de escribir if/else
-let validar = confirm()
+// let validar = confirm()
 // if(validar){
 //     return "es verdadero"
 // } else {
 //     return "es falso"
 // }
-validar ? "es verdadero" : "es falso"
+// validar ? "es verdadero" : "es falso"
 
 // Spread operator
 // ...
@@ -56,3 +56,33 @@ function mostrar(...dato){
 // ||
 // const b = valor1  valor2
 // si valor1 es turthy, lo utiliza, sino utiliza al valor2
+
+// Destructuring
+
+const producto = {
+    name:"Antipulgas Gato", 
+    id:"001",
+    type:"Medicinal", 
+    price:450, 
+    stock:32, 
+    description:"Antipulgas felino Frontline Plus"
+}
+// sin alais
+const {name, id, type} = producto
+// con alias
+const {name: nombreProd, id: idProd, type: typeProd} = producto
+
+console.log("nombreProd", nombreProd)
+// en parametro
+
+function mostrarProducto({name, id, type, price, stock, description}){
+    console.log(name)
+    console.log(id)
+    console.log(type)
+    console.log(price)
+    console.log(stock)
+    console.log(description)
+}
+
+mostrarProducto(producto)
+

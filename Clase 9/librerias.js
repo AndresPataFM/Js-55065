@@ -95,5 +95,5 @@ boton.addEventListener("click", ()=>{
     Toastify({
         text: "Producto agregado al carrito",
         duration: 3000
-        }).showToast();
+    }).showToast();
 })

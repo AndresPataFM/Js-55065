@@ -45,8 +45,6 @@ const agregarCarrito = (objetoCarrito)=>{
     totalCarritoRender()
 }
 
-
-
 const renderizarCarrito = ()=>{
     // borra el cotnenido de carrito y renderiza carrito en una lista
     const listaCarrito = document.getElementById("listaCarrito")
